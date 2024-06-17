@@ -1,0 +1,36 @@
+{
+  "name": "asl-eslint-common",
+  "version": "1.0.0",
+  "description": "eslint configuration, extended out to asl code base.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UKHomeOffice/asl-eslint-common.git"
+  },
+  "keywords": [
+    "eslint",
+    "javascript",
+    "nodeJs"
+  ],
+  "author": "farrukh.ishaq",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/UKHomeOffice/asl-eslint-common/issues"
+  },
+  "homepage": "https://github.com/UKHomeOffice/asl-eslint-common#readme",
+  "dependencies": {
+    "eslint-config-semistandard": "^11.0.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-filenames": "^1.2.0",
+    "eslint-plugin-implicit-dependencies": "^1.1.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-no-only-tests": "^2.4.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-react": "^7.3.0",
+    "eslint-plugin-standard": "^3.0.1"
+  }
+}
