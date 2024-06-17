@@ -1,0 +1,8 @@
+name: 'SemVer Tag'
+on:
+  pull_request:
+    types: [ closed ]
+
+jobs:
+  check:
+    uses: UKHomeOffice/sas-github-workflows/.github/workflows/semver-tag.yml@v2
