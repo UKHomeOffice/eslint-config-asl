@@ -1,4 +1,4 @@
-name: 'Publish - npm'
+name: 'Publish using sas-github - npm'
 on:
   pull_request:
     types: [ closed ]
