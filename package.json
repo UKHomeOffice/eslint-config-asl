@@ -21,6 +21,9 @@
     "url": "https://github.com/UKHomeOffice/asl-eslint-common/issues"
   },
   "homepage": "https://github.com/UKHomeOffice/asl-eslint-common#readme",
+  "publishConfig": {
+    "@ukhomeoffice:registry": "https://npm.pkg.github.com"
+  },
   "dependencies": {
     "eslint-config-semistandard": "^11.0.0",
     "eslint-config-standard": "^10.2.1",
