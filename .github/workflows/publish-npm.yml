@@ -1,9 +1,31 @@
-name: 'Publish - npm'
+name: Publish to GitHub Packages
+
 on:
-  pull_request:
-    types: [ closed ]
+  push:
+    branches:
+      - main
 
 jobs:
   publish:
-    uses: UKHomeOffice/sas-github-workflows/.github/workflows/publish-npm.yml@v1
-    secrets: inherit
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+          registry-url: 'https://npm.pkg.github.com/'
+
+      - name: Configure .npmrc
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_AUTH_TOKEN }}" > ~/.npmrc
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Publish package
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GH_AUTH_TOKEN }}
