@@ -1,6 +1,6 @@
 {
   "name": "@ukhomeoffice/asl-eslint-common",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "eslint configuration, extended out to asl code base.",
   "main": "index.js",
   "scripts": {
