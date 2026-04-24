@@ -34,34 +34,37 @@ export default [
 
         rules: {
             // ======================
-            // CORE RULES
+            // FILENAMES (safe for monorepos)
             // ======================
             "filenames/match-regex": [
                 "error",
-                "^[a-z]+[a-z0-9\\-\\.]*[a-z0-9]+$",
+                "^[a-z0-9]+([a-z0-9\\-\\.]*[a-z0-9]+)?$",
                 true
             ],
 
-            "implicit-dependencies/no-implicit": "error",
+            // ======================
+            // SAFETY RULES
+            // ======================
             "no-only-tests/no-only-tests": "error",
             "no-param-reassign": "warn",
+            "implicit-dependencies/no-implicit": "error",
 
             // ======================
-            // PROMISE RULES (important fix)
+            // PROMISES
             // ======================
             "promise/always-return": "off",
             "promise/no-return-wrap": "error",
             "promise/catch-or-return": "error",
 
             // ======================
-            // REACT RULES
+            // REACT (non-opinionated baseline)
             // ======================
             "react/display-name": "off",
             "react/prop-types": "off",
             "react/jsx-uses-vars": "warn",
 
             // ======================
-            // STYLE RULES
+            // STYLE (keep minimal for mixed codebases)
             // ======================
             "padded-blocks": "off",
             "space-before-function-paren": "off",

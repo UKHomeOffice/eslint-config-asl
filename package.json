@@ -1,35 +1,36 @@
 {
   "name": "@ukhomeoffice/eslint-config-asl",
   "version": "4.0.0",
-  "description": "eslint configuration, extended out to asl code base.",
-  "scripts": {
-    "test": "echo \"Error: no test specified\""
+  "description": "Shared ESLint flat config for ASL codebases (monorepo + mixed module support)",
+
+  "exports": {
+    ".": "./eslint.config.js"
   },
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/UKHomeOffice/asl-eslint-common.git"
   },
-  "keywords": [
-    "eslint",
-    "javascript",
-    "nodeJs"
-  ],
+
   "author": "farrukh.ishaq",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/UKHomeOffice/asl-eslint-common/issues"
+
+  "keywords": ["eslint", "javascript", "nodejs", "monorepo"],
+
+  "devDependencies": {
+    "eslint": "^9.0.0"
   },
-  "homepage": "https://github.com/UKHomeOffice/asl-eslint-common#readme",
-  "publishConfig": {
-    "@ukhomeoffice:registry": "https://npm.pkg.github.com"
-  },
+
   "dependencies": {
     "eslint-plugin-filenames": "^1.3.2",
     "eslint-plugin-implicit-dependencies": "^1.1.1",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-no-only-tests": "^3.3.0",
-    "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^7.2.1",
     "eslint-plugin-react": "^7.37.5"
+  },
+
+  "peerDependencies": {
+    "eslint": ">=9"
   }
 }
