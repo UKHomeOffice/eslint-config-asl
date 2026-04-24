@@ -4,13 +4,51 @@ import promise from "eslint-plugin-promise";
 import noOnlyTests from "eslint-plugin-no-only-tests";
 import implicit from "eslint-plugin-implicit-dependencies";
 
+const sharedRules = {
+    // ======================
+    // FILENAMES (safe for monorepos)
+    // ======================
+    "filenames/match-regex": [
+        "error",
+        "^[a-z0-9]+([a-z0-9\\-\\.]*[a-z0-9]+)?$",
+        true
+    ],
+
+    // ======================
+    // SAFETY RULES
+    // ======================
+    "no-only-tests/no-only-tests": "error",
+    "no-param-reassign": "warn",
+    "implicit-dependencies/no-implicit": "error",
+
+    // ======================
+    // PROMISES
+    // ======================
+    "promise/always-return": "off",
+    "promise/no-return-wrap": "error",
+    "promise/catch-or-return": "error",
+
+    // ======================
+    // REACT (non-opinionated baseline)
+    // ======================
+    "react/display-name": "off",
+    "react/prop-types": "off",
+    "react/jsx-uses-vars": "warn",
+
+    // ======================
+    // STYLE (keep minimal for mixed codebases)
+    // ======================
+    "padded-blocks": "off",
+    "space-before-function-paren": "off",
+    "spaced-comment": "off"
+};
+
 export default [
     {
-        files: ["**/*.{js,jsx}"],
+        files: ["**/*.{js,jsx,mjs,cjs}"],
 
         languageOptions: {
             ecmaVersion: 2022,
-            sourceType: "module",
             parserOptions: {
                 ecmaFeatures: {
                     jsx: true
@@ -32,43 +70,21 @@ export default [
             "implicit-dependencies": implicit
         },
 
-        rules: {
-            // ======================
-            // FILENAMES (safe for monorepos)
-            // ======================
-            "filenames/match-regex": [
-                "error",
-                "^[a-z0-9]+([a-z0-9\\-\\.]*[a-z0-9]+)?$",
-                true
-            ],
+        rules: sharedRules
+    },
 
-            // ======================
-            // SAFETY RULES
-            // ======================
-            "no-only-tests/no-only-tests": "error",
-            "no-param-reassign": "warn",
-            "implicit-dependencies/no-implicit": "error",
+    // Explicit extension handling for mixed monorepos.
+    {
+        files: ["**/*.mjs"],
+        languageOptions: {
+            sourceType: "module"
+        }
+    },
 
-            // ======================
-            // PROMISES
-            // ======================
-            "promise/always-return": "off",
-            "promise/no-return-wrap": "error",
-            "promise/catch-or-return": "error",
-
-            // ======================
-            // REACT (non-opinionated baseline)
-            // ======================
-            "react/display-name": "off",
-            "react/prop-types": "off",
-            "react/jsx-uses-vars": "warn",
-
-            // ======================
-            // STYLE (keep minimal for mixed codebases)
-            // ======================
-            "padded-blocks": "off",
-            "space-before-function-paren": "off",
-            "spaced-comment": "off"
+    {
+        files: ["**/*.cjs"],
+        languageOptions: {
+            sourceType: "commonjs"
         }
     }
 ];

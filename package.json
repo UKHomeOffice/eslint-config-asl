@@ -2,9 +2,21 @@
   "name": "@ukhomeoffice/eslint-config-asl",
   "version": "4.0.0",
   "description": "Shared ESLint flat config for ASL codebases (monorepo + mixed module support)",
+  "type": "module",
+  "main": "./eslint.config.mjs",
 
   "exports": {
-    ".": "./eslint.config.js"
+    ".": "./eslint.config.mjs"
+  },
+
+  "files": [
+    "eslint.config.mjs",
+    "README.md",
+    "LICENSE"
+  ],
+
+  "engines": {
+    "node": ">=18"
   },
 
   "repository": {
